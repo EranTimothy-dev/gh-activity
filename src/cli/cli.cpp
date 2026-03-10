@@ -2,6 +2,7 @@
 #include <CLI/CLI.hpp>
 #include <iostream>
 #include <string>
+#include "../github/github_api.hpp"
 
 int CLIApp::run(int argc, char** argv) {
 
@@ -19,6 +20,8 @@ int CLIApp::run(int argc, char** argv) {
 
     if (*userCmd) {
         std::cout << "Fetching activity for user: " << username << std::endl;
+        std::string data = github::get_user_events(username);
+        fprintf(stdout, "%s\n", data.c_str());
     }
 
     if (*tuiCmd) {
