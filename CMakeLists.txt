@@ -5,6 +5,7 @@ project(gh-activity)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # add_subdirectory(third_party/CLI11)
 
@@ -48,4 +49,7 @@ add_subdirectory(src)
 #     ${CMAKE_SOURCE_DIR}/third_part/CLI11/include
 # )
 
-# set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+execute_process(
+    COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_BINARY_DIR}/compile_commands.json ${CMAKE_SOURCE_DIR}/compile_commands.json
+)
