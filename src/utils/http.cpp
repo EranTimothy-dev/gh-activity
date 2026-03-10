@@ -23,7 +23,7 @@ namespace http {
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
         // write response data to our string variable
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
-
+        // set user agent to avoid 403 Forbidden error from GitHub API
         curl_easy_setopt(curl, CURLOPT_USERAGENT, "gh-activity-cli/1.0");
 
         CURLcode res = curl_easy_perform(curl);
