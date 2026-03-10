@@ -1,6 +1,4 @@
 #include <iostream>
+#include <CLI/CLI.hpp>
 
-int main() {
-    std::cout << "Hello, from gh-activity" << std::endl;
-    return 0;
-}
+int main(int argc, char** argv) {}
