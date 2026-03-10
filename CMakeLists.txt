@@ -18,6 +18,23 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(CLI11)
 
+find_package(CURL QUIET)
+
+if (CURL_FOUND)
+    message(STATUS "CURL found, using system library")
+else()
+    message(STATUS "CURL not found, fetching and building libcurl with FetchContent")
+    FetchContent_Declare(
+        CURL
+        URL https://github.com/curl/curl/releases/download/curl-8_18_0/curl-8.18.0.tar.gz
+        URL_HASH SHA256=e9274a5f8ab5271c0e0e6762d2fce194d5f98acc568e4ce816845b2dcc0cf88f
+    )
+    set(BUILD_CURL_EXE OFF CACHE BOOL "Don't build curl executable" FORCE)
+    set(BUILD_STATIC_LIBS ON CACHE BOOL "Build static libraries for curl" FORCE)
+    FetchContent_MakeAvailable(CURL) 
+    add_library(CURL::libcurl ALIAS libcurl_static)
+endif()
+
 add_subdirectory(src)
 
 # add the executable

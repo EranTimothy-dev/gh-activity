@@ -5,3 +5,4 @@ add_executable(gh-activity
 )
 
 target_link_libraries(gh-activity PRIVATE CLI11::CLI11)
+target_link_libraries(gh-activity PRIVATE CURL::libcurl)
