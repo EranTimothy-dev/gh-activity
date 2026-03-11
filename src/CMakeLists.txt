@@ -2,7 +2,7 @@ add_executable(gh-activity
     main.cpp
     cli/cli.cpp
     github/github_api.cpp
-    github/event_parser.cpp
+    parser/event_parser.cpp
     utils/http.cpp
 )
 

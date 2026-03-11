@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "../github/github_api.hpp"
+#include "../parser/event_parser.hpp"
 
 int CLIApp::run(int argc, char** argv) {
 
@@ -21,6 +22,12 @@ int CLIApp::run(int argc, char** argv) {
     if (*userCmd) {
         std::cout << "Fetching activity for user: " << username << std::endl;
         std::string data = github::get_user_events(username);
+        std::vector<Event> events = parse_events(data);
+        for (const auto& event : events) {
+            fprintf(stdout, "Event Type: %s, Repo: %s\n", event.type.c_str(), event.repo.c_str());
+        }
+        std::cout << "\n" << std::endl;
+        std::string formatted = format_response(data);
         fprintf(stdout, "%s\n", data.c_str());
     }
 
