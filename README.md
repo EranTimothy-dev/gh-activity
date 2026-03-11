@@ -21,44 +21,44 @@ A modern **C++ CLI and TUI application** that fetches and visualizes GitHub user
 
 ---
 
-## Demo
-
-### CLI
-```
-$ gh-activity EranTimothy-dev
-
-Recent GitHub Activity for EranTimothy-dev
-
-PushEvent          scopesyncbridge          +3 commits
-PullRequestEvent   ai-email-client          opened PR #42
-IssueCommentEvent  docker-utils             commented on issue #12
-WatchEvent         openai/openai-python     starred repository
-```
-
----
-
-### TUI Dashboard
-```
-GitHub Activity Dashboard
-────────────────────────────────
-
-User: EranTimothy-dev
-
-Recent Events
-────────────────────────────────
-PushEvent          scopesyncbridge
-PullRequestEvent   ai-email-client
-IssueCommentEvent  docker-utils
-
-Repositories
-────────────────────────────────
-Most Active Repo: scopesyncbridge
-Commits This Week: 12
-Pull Requests Opened: 4
-Issues Commented: 7
-```
-
----
+<!-- ## Demo -->
+<!---->
+<!-- ### CLI -->
+<!-- ``` -->
+<!-- $ gh-activity EranTimothy-dev -->
+<!---->
+<!-- Recent GitHub Activity for EranTimothy-dev -->
+<!---->
+<!-- PushEvent          scopesyncbridge          +3 commits -->
+<!-- PullRequestEvent   ai-email-client          opened PR #42 -->
+<!-- IssueCommentEvent  docker-utils             commented on issue #12 -->
+<!-- WatchEvent         openai/openai-python     starred repository -->
+<!-- ``` -->
+<!---->
+<!-- --- -->
+<!---->
+<!-- ### TUI Dashboard -->
+<!-- ``` -->
+<!-- GitHub Activity Dashboard -->
+<!-- ──────────────────────────────── -->
+<!---->
+<!-- User: EranTimothy-dev -->
+<!---->
+<!-- Recent Events -->
+<!-- ──────────────────────────────── -->
+<!-- PushEvent          scopesyncbridge -->
+<!-- PullRequestEvent   ai-email-client -->
+<!-- IssueCommentEvent  docker-utils -->
+<!---->
+<!-- Repositories -->
+<!-- ──────────────────────────────── -->
+<!-- Most Active Repo: scopesyncbridge -->
+<!-- Commits This Week: 12 -->
+<!-- Pull Requests Opened: 4 -->
+<!-- Issues Commented: 7 -->
+<!-- ``` -->
+<!---->
+<!-- --- -->
 
 ## Installation
 
