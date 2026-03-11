@@ -10,10 +10,10 @@ int CLIApp::run(int argc, char** argv) {
     CLI::App app{"GitHub Activity CLI"};
 
     std::string username;
-    bool getRepos = false;
-    bool getOrgs = false;
+    // bool getRepos = false;
+    // bool getOrgs = false;
 
-    auto userCmd = app.add_option("-u, --username", username, "Get total repositories for username")->required();
+    auto userCmd = app.add_option("-u, --username", username, "Get info for username");
 
     auto eventCmd = app.add_subcommand("events", "Get user events");
     eventCmd->add_option("-u, --username", username)->required();
@@ -21,8 +21,10 @@ int CLIApp::run(int argc, char** argv) {
     auto tuiCmd = app.add_subcommand("tui", "Launch TUI");
     tuiCmd->add_option("-u, --username", username)->required();
 
-    app.add_flag("-r, --repos", getRepos, "Get repositories for username");
-    app.add_flag("-o, --orgs", getOrgs, "Get organizations for username");
+    // app.add_flag("-r, --repos", getRepos, "Get repositories for username");
+    // app.add_flag("-o, --orgs", getOrgs, "Get organizations for username");
+    auto reposCmd = app.add_subcommand("repos", "Get repositories for user");
+    reposCmd->add_option("-u, --username", username)->required();
 
     CLI11_PARSE(app, argc, argv);
 
@@ -45,7 +47,7 @@ int CLIApp::run(int argc, char** argv) {
         fprintf(stdout, "%s\n", data.c_str());
     }
 
-    if (getRepos) {
+    if (*reposCmd) {
         std::cout << "Fetching repositories for user: " << username << std::endl;
         std::string data = github::get_all_repos(username);
         std::string formatted = format_response(data);
