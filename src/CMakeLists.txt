@@ -3,7 +3,9 @@ add_executable(gh-activity
     cli/cli.cpp
     github/github_api.cpp
     parser/event_parser.cpp
+    parser/repo_parser.cpp
     utils/http.cpp
+    utils/formatter.cpp
 )
 
 target_link_libraries(gh-activity 
