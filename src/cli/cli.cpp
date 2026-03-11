@@ -6,6 +6,7 @@
 #include "../github/github_api.hpp"
 #include "../parser/event_parser.hpp"
 #include "../parser/repo_parser.hpp"
+#include "../tui/ui.hpp"
 
 int CLIApp::run(int argc, char** argv) {
 
@@ -23,8 +24,8 @@ int CLIApp::run(int argc, char** argv) {
     eventCmd->add_option("-u, --username", eventsUser, "Username")->required();
 
     auto tuiCmd = app.add_subcommand("tui", "Launch TUI");
-    std::string tuiUser;
-    tuiCmd->add_option("-u, --username", tuiUser, "Username")->required();
+    // std::string tuiUser;
+    // tuiCmd->add_option("-u, --username", tuiUser, "Username")->required();
 
     auto reposCmd = app.add_subcommand("repos", "Get repositories for user");
     std::string reposUser;
@@ -61,7 +62,8 @@ int CLIApp::run(int argc, char** argv) {
         // std::string formatted = format_response(data);
         // std::cout << formatted << std::endl;
     } else if (app.got_subcommand(tuiCmd)) {
-        std::cout << "Launching TUI for user: " << tuiUser << std::endl;
+        std::cout << "Launching TUI for user..." << std::endl;
+        launch_tui();
     } else {
         std::cout << app.help() << std::endl;
     }
