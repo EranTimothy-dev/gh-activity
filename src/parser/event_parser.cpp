@@ -3,13 +3,13 @@
 
 using json = nlohmann::json;
 
-std::vector<Event> parse_events(const std::string& json_str) {
+std::vector<event::Event> parse_events(const std::string& json_str) {
     json j = json::parse(json_str);
 
-    std::vector<Event> events;
+    std::vector<event::Event> events;
 
     for (auto& item : j) {
-        Event event;
+        event::Event event;
         event.type = item["type"].get<std::string>();
         event.repo = item["repo"]["name"].get<std::string>();
 
@@ -17,11 +17,4 @@ std::vector<Event> parse_events(const std::string& json_str) {
     }
 
     return events;
-}
-
-std::string format_response(const std::string& json_str) {
-    json j = json::parse(json_str);
-    std::string formatted = j.dump(4);
-
-    return formatted;
 }
