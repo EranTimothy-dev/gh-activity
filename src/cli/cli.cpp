@@ -11,8 +11,9 @@ int CLIApp::run(int argc, char** argv) {
 
     std::string username;
 
-    auto userCmd = app.add_subcommand("user", "Get user activity");
-    userCmd->add_option("-u, --username", username, "Github username")->required();
+    // auto userCmd = app.add_subcommand("user", "Get user activity");
+    // userCmd->add_option("-u, --username", username, "Github username");
+    auto userCmd = app.add_option("-u, --username", username, "GitHub username")->required();
 
     auto tuiCmd = app.add_subcommand("tui", "Launch TUI");
     tuiCmd->add_option("-u, --username", username)->required();
