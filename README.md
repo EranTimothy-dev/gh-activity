@@ -73,16 +73,20 @@ cd gh-activity
 ### Build the project
 
 The project uses **CMake**.
+<!-- ```bash -->
+<!-- mkdir build -->
+<!-- cd build -->
+<!-- cmake .. -->
+<!-- make -->
+<!-- ``` -->
 ```bash
-mkdir build
-cd build
-cmake ..
-make
+cmake -S . -B build
+cmake --build build
 ```
 
 Run:
 ```bash
-./gh-activity
+./gh-activity user <username>
 ```
 
 ---
@@ -91,12 +95,12 @@ Run:
 
 ### Basic usage
 ```
-gh-activity <username>
+gh-activity user <username>
 ```
 
 Example:
 ```
-gh-activity EranTimothy-dev
+gh-activity user EranTimothy-dev
 ```
 
 ---
@@ -105,7 +109,7 @@ gh-activity EranTimothy-dev
 
 | Command                        | Description                           |
 | ------------------------------ | ------------------------------------- |
-| `gh-activity <username>`       | Show recent GitHub activity           |
+| `gh-activity user <username>`  | Show recent GitHub info               |
 | `gh-activity stats <username>` | Display activity statistics           |
 | `gh-activity repos <username>` | Show repository insights              |
 | `gh-activity tui <username>`   | Launch interactive terminal dashboard |
