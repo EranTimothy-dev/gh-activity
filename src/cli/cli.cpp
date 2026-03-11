@@ -40,7 +40,7 @@ int CLIApp::run(int argc, char** argv) {
     } else if (app.got_subcommand(eventCmd)) {
         std::cout << "Fetching activity for user: " << username << std::endl;
         std::string data = github::get_user_events(eventsUser);
-        std::vector<Event> events = parse_events(data);
+        std::vector<event::Event> events = parse_events(data);
         for (const auto& event : events) {
             fprintf(stdout, "Event Type: %s, Repo: %s\n", event.type.c_str(), event.repo.c_str());
         }
