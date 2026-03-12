@@ -6,6 +6,7 @@ add_executable(gh-activity
     parser/repo_parser.cpp
     utils/http.cpp
     utils/formatter.cpp
+    tui/dashboard.cpp
 )
 
 target_link_libraries(gh-activity 
