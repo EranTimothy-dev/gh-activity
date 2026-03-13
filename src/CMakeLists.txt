@@ -7,6 +7,12 @@ add_executable(gh-activity
     utils/http.cpp
     utils/formatter.cpp
     tui/dashboard.cpp
+    tui/app.cpp
+    tui/repos/headerComponent.cpp
+    tui/repos/loadingComponent.cpp
+    tui/repos/repoMenuComponent.cpp
+    tui/repos/repoPanel.cpp
+    tui/repos/searchComponent.cpp
 )
 
 target_link_libraries(gh-activity 
