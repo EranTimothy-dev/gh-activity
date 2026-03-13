@@ -36,7 +36,7 @@ int CLIApp::run(int argc, char** argv) {
     if (app.got_subcommand(userCmd)) {
         std::cout << "Fetching total repositories for user: " << username << std::endl;
         std::string data = github::get_user_info(username);
-        std::string formatted = format_response(data);
+        std::string formatted = format_response(data); // old formated method
         std::cout << "Total Repositories: " << formatted << std::endl;
     } else if (app.got_subcommand(eventCmd)) {
         std::cout << "Fetching activity for user: " << username << std::endl;
@@ -63,7 +63,7 @@ int CLIApp::run(int argc, char** argv) {
         // std::cout << formatted << std::endl;
     } else if (app.got_subcommand(tuiCmd)) {
         std::cout << "Launching TUI for user..." << std::endl;
-        launch_tui();
+        dashboard();
     } else {
         std::cout << app.help() << std::endl;
     }
